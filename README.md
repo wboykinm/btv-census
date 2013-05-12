@@ -1,0 +1,1 @@
+This is a cartoDB-based site for exploring census data. Low on documentation for the moment.
