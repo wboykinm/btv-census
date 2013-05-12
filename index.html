@@ -62,12 +62,12 @@
 		     <li class="yr"><a href="#" class="year" id="med_age_90">1990</a></li>
 			 <li class="yr"><a href="#" class="year" id="med_age_00">2000</a></li>
 			 <li class="yr"><a href="#" class="year active" id="med_age_10">2010</a></li>
-            <!--<li class="dropdown">
-              <a href="#" class="dropdown-toggle" data-toggle="dropdown"><small><i class="icon-download"></i> Download <b class="caret"></b></small></a>
+            <li class="dropdown">
+              <a href="#" class="dropdown-toggle" data-toggle="dropdown"><small><i class="icon-download icon-white"></i> Download <b class="caret"></b></small></a>
               <ul class="dropdown-menu">
                 <li><a id="downkml" href="#" target="_blank">KML</a></li>
               </ul>
-            </li>-->
+            </li>
 			<!--TRIGGERS A MODAL WINDOW WITH ALL YOUR EXPLANATORY INFORMATION; NICE TO HAVE HIDDEN MOST OF THE TIME-->
             <!--<li><a href="#myModal" role="button" class="pull-right" data-toggle="modal"><small>About</small></a></li>-->
           </ul>
@@ -178,12 +178,8 @@
 	
     //KML FORMAT,            
     $('#downkml').click(function () {
-      var nwlat = map.getBounds().getNorthWest().lat,
-        nwlon = map.getBounds().getNorthWest().lng,
-        selat = map.getBounds().getSouthEast().lat,
-        selon = map.getBounds().getSouthEast().lng;
       //NOTE THAT THIS IS AN ENCODED SQL STRING IN A URL. BEST THING EVER.
-      var new_sql = "http://geosprocket.cartodb.com/api/v2/sql?q=SELECT%20*%20FROM%20btv_prints_041513f%20WHERE%20the_geom%20%26%26%20ST_SetSRID(ST_MakeBox2D(ST_Point(" + nwlon + "%2C%20" + nwlat + ")%2C%20ST_Point(" + selon + "%2C%20" + selat + "))%2C4326)%20ORDER%20BY%20height%20DESC%20LIMIT%202000&format=kml";
+      var new_sql = "http://geosprocket.cartodb.com/api/v2/sql?q=SELECT%20*%20FROM%20btv_bg_90_10&format=kml";
     
       $(this).attr("href", new_sql);
     });
