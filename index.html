@@ -3,7 +3,7 @@
   <head>
     <style>
       html, body {width:100%; height:100%; padding: 0; margin: 0;}
-      #map {width: 100%; /*height:100%;*/ position: absolute; top: 60px; bottom: 0px; background: black; z-index:1;}
+      #map {width: 100%; /*height:100%;*/ position: absolute; top: 40px; bottom: 0px; background: black; z-index:1;}
       div.cartodb-popup div.cartodb-popup-content {max-height:none | inherit}
 	  #footer {
       position:absolute;
@@ -31,7 +31,7 @@
     <link rel="stylesheet" href="http://libs.cartocdn.com/cartodb.js/v2/themes/css/cartodb.ie.css" />
     <![endif]-->
 	<!-- NOTE WE'RE USING A BOOTSWATCH THEME INSTEAD OF BOOTSTRAP STANDARD-->
-    <link rel="stylesheet" href="http://netdna.bootstrapcdn.com/bootswatch/2.3.1/journal/bootstrap.min.css" />
+    <link rel="stylesheet" href="http://netdna.bootstrapcdn.com/bootswatch/2.3.1/united/bootstrap.min.css" />
 	
 	<!--HERE YOU CAN CUSTOMIZE THE POPUP INFOWINDOW WITH DATA FROM YOU SOURCE TABLE; VARIABLES IN THE MUSTACHE TAGS-->
     <script type="infowindow/html" id="infowindow_template">
@@ -54,14 +54,14 @@
     <!--ADD THE MAP ELEMENT-->
     <div id='map'></div>
     <!--SOME BOOTSTRAP NAV BOILERPLATE TO MAKE THINGS SIMPLE AND APPEALING-->
-    <div class="navbar navbar-fixed-top">
+    <div class="navbar navbar-inverse navbar-fixed-top">
       <div class="navbar-inner">
         <div class="container">
           <a class="brand">Burlington VT - Demographics</a>
-          <ul class="nav pull-right">
-		     <li class="yr"><a href="#" class="year btn-info" id="med_age_90">1990</a></li>
-			 <li class="yr"><a href="#" class="year btn-info" id="med_age_00">2000</a></li>
-			 <li class="yr active"><a href="#" class="year btn-info active" id="med_age_10">2010</a></li>
+          <ul class="nav">
+		     <li class="yr"><a href="#" class="year" id="med_age_90">1990</a></li>
+			 <li class="yr"><a href="#" class="year" id="med_age_00">2000</a></li>
+			 <li class="yr"><a href="#" class="year active" id="med_age_10">2010</a></li>
             <!--<li class="dropdown">
               <a href="#" class="dropdown-toggle" data-toggle="dropdown"><small><i class="icon-download"></i> Download <b class="caret"></b></small></a>
               <ul class="dropdown-menu">
@@ -104,7 +104,7 @@
 	<div id="footer">
 		<div class="container">
 				<ul class="inline">
-					<li><h2 class="switch-title">Median Age at 2010 Census </h2></li>
+					<li><h2 class="switch-title">Median Age at the 2010 Census </h2></li>
 					<li class="divider"></li>
 					<li><img src="img/legend1.png"/>   </li>
 				</ul>  
@@ -171,7 +171,7 @@
 		$('.year').click(function () {
 			$('.year').removeClass('active');
 			$(this).addClass('active');
-			$('h2.switch-title').text("Median Age at " + $('.year.active').text() + " Census");
+			$('h2.switch-title').text("Median Age at the " + $('.year.active').text() + " Census");
 			current_year = $(this).attr('id');
 			updateQuery();
 		});
